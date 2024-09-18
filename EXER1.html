@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Ready Example</title>
+
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <!-- Main heading -->
+    <h1 id="title">Welcome To My Website</h1>
+
+    <!-- Paragraphs with different IDs and classes -->
+    <p id="p1">This is my paragraph</p> 
+    <p id="p2">Welcome To My Website Again</p>
+    <p class="p3">Welcome To My Website Again and Again</p>
+    <p class="p3">Welcome To My Website Again and Again and Again</p>
+
+    <!-- Buttons for various actions -->
+    <button id="myBtn1">Hide Title</button>
+    <button id="myBtn2">Change Text</button>
+    <button id="myBtn3">Hide Paragraph</button>
+    <button id="myBtn4">Append to List</button>
+    <button id="myBtn5">Remove List</button>
+    <!-- New button to change any paragraph to 'Hello World' -->
+    <button id="myBtnHello">Change to Hello World!</button>
+
+    <!-- List with items -->
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+
+    
+    <script>
+        // jQuery code runs when the document is fully loaded
+        $(document).ready(function(){
+            // Initially hide all paragraphs
+            $('p').hide();
+
+            // Toggle visibility of title and first paragraph when myBtn1 is clicked
+            $('#myBtn1').click(function(){
+                $('#title').toggle('slow'); // Toggle visibility of the title with a slow animation
+                $('#p1').toggle(); // Toggle visibility of the first paragraph
+            });
+
+            // Change text of first paragraph and apply styles when myBtn2 is clicked
+            $('#myBtn2').click(function(){
+                $('#p1').text('This paragraph is now changed'); // Change text of the first paragraph
+                $(this).css('color', 'yellow'); // Change text color of the button to yellow
+                $(this).css('backgroundColor', 'blue'); // Change background color of the button to blue
+            });
+
+            // Toggle visibility of all paragraphs with animation when myBtn3 is clicked
+            $('#myBtn3').click(function(){
+                $('p').toggle(5000); // Toggle visibility of all paragraphs with a 5-second animation
+            });
+
+            // Append new item to the list when myBtn5 is clicked
+            $('#myBtn4').click(function(){
+                $('#list').append('<li>Item</li>'); // Add a new list item with the text "New Item"
+            });
+
+            // Remove the entire list when myBtn6 is clicked
+            $('#myBtn5').click(function(){
+                $('#list').remove(); // Remove the entire list element from the DOM
+            });
+
+            // Change the text of all paragraphs to "Hello World!" when myBtnHello is clicked
+            $('#myBtnHello').click(function(){
+                $('p').text('Hello World!'); // Change the text of all paragraphs to "Hello World!"
+            });
+
+            // Additional functionality to change the color of the first paragraph
+            $('#myBtn2').click(function(){
+                $('#p1').css('color', 'green'); // Change the text color of the first paragraph to green
+            });
+        });
+    </script>
+</body>
+</html>
